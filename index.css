@@ -1117,6 +1117,33 @@ body.light-mode footer {
         width: 100%;
     }
     
+    /* Make Hero very compact on Mobile to fit both CTAs in first fold */
+    .hero {
+        padding: 30px 0 20px 0;
+    }
+    
+    .hero h1 {
+        font-size: 2.1rem;
+        min-height: 3.3em;
+        margin-bottom: 12px;
+        line-height: 1.25;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+    
+    .hero-actions {
+        gap: 10px;
+    }
+    
+    .hero-actions .btn {
+        padding: 12px 20px;
+        font-size: 0.85rem;
+    }
+    
     .stats-strip-inner {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
