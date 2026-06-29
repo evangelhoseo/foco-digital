@@ -65,6 +65,7 @@ body.light-mode {
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -1293,7 +1294,7 @@ body.light-mode footer {
     background-color: #25D366;
     color: #ffffff;
     border-radius: 50%;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     font-size: 1.85rem;
@@ -1301,6 +1302,7 @@ body.light-mode footer {
     z-index: 1050; /* Above page content, below overlay (1150) */
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-decoration: none;
+    visibility: visible !important;
 }
 
 .floating-whatsapp:hover {
@@ -1316,5 +1318,7 @@ body.light-mode footer {
         width: 50px;
         height: 50px;
         font-size: 1.6rem;
+        display: flex !important;
+        visibility: visible !important;
     }
 }
