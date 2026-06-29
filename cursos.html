@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formação em Meta Ads e Google Ads com I.A. | Foco Digital Cursos</title>
+    
+    <!-- Google Fonts (Sora) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Dashicons Mockup (Since we use WP Dashicons, we link fontawesome or create SVG/unicode fallbacks, but we'll import Dashicons stylesheet or mock it with simple CSS/Unicode characters for the static page) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Our Custom Table CSS -->
+    <link rel="stylesheet" href="tabela-turmas.css">
+    
+    <!-- Mockup Page Styling -->
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #0b0d10;
+            color: #ffffff;
+            font-family: 'Sora', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Mockup Dashicons Fallbacks */
+        .dashicons {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            font-style: normal;
+        }
+        .dashicons-location::before { content: "\f3c5"; }
+        .dashicons-calendar-alt::before { content: "\f073"; }
+        .dashicons-clock::before { content: "\f017"; }
+        .dashicons-editor-help::before { content: "\f059"; }
+        
+        /* Layout Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: rgba(11, 13, 16, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 20px 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #ff5900;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #9ba4b4;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        nav a.active {
+            color: #ff5900;
+        }
+
+        .nav-btn {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #ffffff;
+            color: #0b0d10;
+            border-color: #ffffff;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px 0;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 89, 0, 0.1) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(255, 89, 0, 0.1);
+            color: #ff5900;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 89, 0, 0.2);
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span.textura {
+            background: linear-gradient(135deg, #ff8b4c 0%, #ff5900 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #9ba4b4;
+            max-width: 700px;
+            margin-bottom: 40px;
+        }
+
+        /* Bullet List */
+        .hero-bullets {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .bullet-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .bullet-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: rgba(255, 89, 0, 0.1);
+            color: #ff5900;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .bullet-text {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .hero-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #b23e00 0%, #ff8b4c 50%, #ff5900 100%);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 18px 36px;
+            border-radius: 35px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            box-shadow: 0 8px 25px rgba(255, 89, 0, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .hero-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 89, 0, 0.45);
+        }
+
+        /* Sticky Navigation Bar */
+        .sticky-subnav {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: #111317;
+            position: sticky;
+            top: 75px;
+            z-index: 90;
+            padding: 15px 0;
+        }
+
+        .sticky-subnav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .subnav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .subnav-links a {
+            color: #9ba4b4;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s ease;
+        }
+
+        .subnav-links a:hover {
+            color: #ffffff;
+        }
+
+        .subnav-btn {
+            background-color: var(--foco-accent);
+            color: #ffffff;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 89, 0, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .subnav-btn:hover {
+            background-color: #ff7830;
+            transform: translateY(-1px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            letter-spacing: -0.01em;
+        }
+
+        .section-title span {
+            color: #ff5900;
+        }
+
+        /* Accordion (Syllabus) */
+        .syllabus-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 900px;
+            margin-bottom: 40px;
+        }
+
+        .accordion-item {
+            background-color: #181c24;
+            border: 1px solid var(--foco-border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .accordion-item summary {
+            padding: 24px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+            outline: none;
+            user-select: none;
+        }
+
+        /* Hide default summary arrow */
+        .accordion-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .accordion-item summary::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 0.9rem;
+            color: #ff5900;
+            transition: transform 0.2s ease;
+        }
+
+        .accordion-item[open] summary::after {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            padding: 0 24px 24px 24px;
+            color: #9ba4b4;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            padding-top: 20px;
+        }
+
+        .accordion-content ul {
+            list-style-position: inside;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Support Section (FAQ CTA) */
+        .support-cta {
+            background: linear-gradient(135deg, #181c24 0%, #111317 100%);
+            border: 1px solid var(--foco-border);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 60px;
+            max-width: 900px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .support-text h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .support-text p {
+            color: #9ba4b4;
+            font-size: 0.95rem;
+        }
+
+        .support-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #25d366;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .support-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #08090c;
+            padding: 60px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #5d6778;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Fixes for Mockup page */
+        @media screen and (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero-description {
+                font-size: 1rem;
+            }
+            header .nav-btn, nav {
+                display: none;
+            }
+            .sticky-subnav {
+                display: none;
+            }
+            .support-cta {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+            .support-btn {
+                width: 100%;
+            }
+        }
+
+        /* Theme Toggle Button Style */
+        .theme-toggle-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        #theme-toggle {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        #theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: scale(1.05);
+        }
+
+        /* Light Mode Theme Styles */
+        body.light-mode {
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+
+        body.light-mode header {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-mode .logo {
+            color: #0f172a;
+        }
+
+        body.light-mode nav a {
+            color: #64748b;
+        }
+
+        body.light-mode nav a:hover {
+            color: #0f172a;
+        }
+
+        body.light-mode #theme-toggle {
+            border-color: rgba(0, 0, 0, 0.15);
+            color: #0f172a;
+        }
+
+        body.light-mode #theme-toggle:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-mode .nav-btn {
+            border-color: rgba(0, 0, 0, 0.15);
+            color: #0f172a;
+        }
+
+        body.light-mode .nav-btn:hover {
+            background-color: #0f172a;
+            color: #ffffff;
+            border-color: #0f172a;
+        }
+
+        body.light-mode .hero h1 {
+            color: #0f172a;
+        }
+
+        body.light-mode .hero-description {
+            color: #475569;
+        }
+
+        body.light-mode .bullet-text {
+            color: #334155;
+        }
+
+        body.light-mode .sticky-subnav {
+            background-color: #ffffff;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-mode .sticky-subnav a {
+            color: #64748b;
+        }
+
+        body.light-mode .sticky-subnav a:hover {
+            color: #0f172a;
+        }
+
+        body.light-mode .section-title {
+            color: #0f172a;
+        }
+
+        body.light-mode .accordion-item {
+            background-color: #ffffff;
+        }
+
+        body.light-mode .accordion-content {
+            color: #475569;
+        }
+
+        body.light-mode .support-cta {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+        }
+
+        body.light-mode .support-text h3 {
+            color: #0f172a;
+        }
+
+        body.light-mode .support-text p {
+            color: #475569;
+        }
+
+        body.light-mode footer {
+            background-color: #f1f5f9;
+            color: #64748b;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <a href="#" class="logo">
+                Foco<span>Cursos</span>
+            </a>
+            <nav>
+                <a href="#" class="active">Cursos Presenciais</a>
+                <a href="#">Treinamento In-Company</a>
+                <a href="agencia.html">Nossa Agência</a>
+            </nav>
+            <div class="theme-toggle-wrapper">
+                <button id="theme-toggle" aria-label="Alternar tema">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+            <button class="nav-btn">Área do Aluno</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="container">
+        <section class="hero">
+            <div class="hero-tag">Inscrições Abertas</div>
+            <h1>Formação Completa em <span class="textura">Meta Ads & Google Ads</span> com Inteligência Artificial</h1>
+            <p class="hero-description">Domine as maiores plataformas de anúncios do mundo auxiliado por I.A. Aprenda do zero ao avançado em aulas 100% presenciais e práticas, aplicando direto em negócios reais.</p>
+            
+            <div class="hero-bullets">
+                <div class="bullet-item">
+                    <span class="bullet-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                    <span class="bullet-text">Formação Completa (63 horas) + Certificado reconhecido</span>
+                </div>
+                <div class="bullet-item">
+                    <span class="bullet-icon"><i class="fa-solid fa-check"></i></span>
+                    <span class="bullet-text">Projetos práticos baseados em agências reais</span>
+                </div>
+                <div class="bullet-item">
+                    <span class="bullet-icon"><i class="fa-solid fa-robot"></i></span>
+                    <span class="bullet-text">Uso prático de I.A Generativa para criação de anúncios</span>
+                </div>
+            </div>
+            
+            <a href="#comprar" class="hero-cta-btn">Ver Próximas Turmas</a>
+        </section>
+    </div>
+
+    <!-- Sticky Navigation Subbar -->
+    <div class="sticky-subnav">
+        <div class="container">
+            <div class="subnav-links">
+                <a href="#curso"><i class="fa-solid fa-book-open"></i> O Curso</a>
+                <a href="#conteudo"><i class="fa-solid fa-list-check"></i> Conteúdo Programático</a>
+                <a href="#comprar"><i class="fa-solid fa-calendar-days"></i> Próximas Turmas</a>
+            </div>
+            <button class="subnav-btn" onclick="document.getElementById('comprar').scrollIntoView({behavior: 'smooth'})">Matrícula</button>
+        </div>
+    </div>
+
+    <!-- Syllabus Content Section -->
+    <div class="container" id="conteudo">
+        <section>
+            <h2 class="section-title">O que você <span>vai aprender</span></h2>
+            
+            <div class="syllabus-accordion">
+                <details class="accordion-item" open>
+                    <summary>Módulo 1: Fundamentos de Tráfego e I.A. Generativa</summary>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>Introdução ao Tráfego Pago: Como funciona o ecossistema digital</li>
+                            <li>Fundamentos de Copywriting e Design aplicados a conversão</li>
+                            <li>Prompt Engineering: Estruturando comandos de I.A. para marketing</li>
+                            <li>Uso do ChatGPT e Claude para estruturação de briefs e roteiros de anúncios</li>
+                        </ul>
+                    </div>
+                </details>
+                
+                <details class="accordion-item">
+                    <summary>Módulo 2: Meta Ads Avançado (Facebook & Instagram)</summary>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>Estrutura de contas: Gerenciador de Negócios (BM) e Contas de Anúncios</li>
+                            <li>Pixel do Meta e API de Conversão: Instalação e Rastreamento completo</li>
+                            <li>Públicos de Anúncio: Personalizados, Lookalike (Semelhantes) e Públicos de Interesse</li>
+                            <li>Otimização de Orçamento (CBO vs ABO) e estratégias de lances</li>
+                            <li>Remarketing avançado e estruturação de funil de vendas</li>
+                        </ul>
+                    </div>
+                </details>
+                
+                <details class="accordion-item">
+                    <summary>Módulo 3: Google Ads (Pesquisa, Display & YouTube)</summary>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>Rede de Pesquisa: Planejamento de palavras-chave, correspondências e anúncios responsivos</li>
+                            <li>Campanhas de Performance Max (PMax): A força da I.A. do Google</li>
+                            <li>YouTube Ads: Formatos de vídeo In-Stream e Bumper Ads</li>
+                            <li>Tag de Google e rastreamento no GA4 (Google Analytics)</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </section>
+    </div>
+
+    <!-- The Schedule Table Section (Our custom widget / shortcode mockup) -->
+    <div class="container" id="comprar">
+        <section style="padding-top: 20px;">
+            <h2 class="section-title">Próximas <span>Turmas Presenciais</span></h2>
+            
+            <!-- Exact HTML produced by [tabela_turmas] -->
+            <div class="foco-agenda-wrapper">
+                
+                <!-- DESKTOP TABLE VIEW -->
+                <div class="foco-table-desktop-container">
+                    <table class="foco-table-turmas">
+                        <thead>
+                            <tr>
+                                <th class="col-datas">Datas</th>
+                                <th class="col-horario">Horário</th>
+                                <th class="col-dias">Dias da Semana</th>
+                                <th class="col-local">Local</th>
+                                <th class="col-valores">Investimento</th>
+                                <th class="col-botao"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Row 1: Turma de Julho -->
+                            <tr>
+                                <td class="cell-datas">
+                                    <span class="badge-status status-aberta">Inscrições Abertas</span>
+                                    <div class="datas-periodo">06 de julho a 16 de setembro</div>
+                                    <div class="datas-detalhe-tooltip" title="Dias de aula: 6, 8, 13, 15, 20, 22, 27, 29 de julho, 3, 5, 10, 12, 17, 19, 24, 26, 31 de agosto, 2, 9, 14 e 16 de setembro">
+                                        <i class="dashicons dashicons-editor-help"></i> Ver calendário completo
+                                    </div>
+                                </td>
+                                <td class="cell-horario">
+                                    <strong>19h às 22h</strong>
+                                </td>
+                                <td class="cell-dias">
+                                    Segundas e Quartas
+                                </td>
+                                <td class="cell-local">
+                                    <span class="icon-map"><i class="dashicons dashicons-location"></i></span>
+                                    <span>Flamengo, Rio de Janeiro</span>
+                                </td>
+                                <td class="cell-valores">
+                                    <div class="preco-riscado">De R$ 2.690,00 por</div>
+                                    <div class="preco-principal">10x de R$ 214,90</div>
+                                    <div class="preco-avista">ou R$ 1.899,00 à vista</div>
+                                </td>
+                                <td class="cell-botao">
+                                    <a href="#" class="btn-checkout">
+                                        Comprar agora
+                                        <span class="badge-desconto">20% OFF</span>
+                                    </a>
+                                </td>
+                            </tr>
+                            
+                            <!-- Row 2: Turma de Fim de Semana -->
+                            <tr>
+                                <td class="cell-datas">
+                                    <span class="badge-status status-ultimas">Últimas Vagas</span>
+                                    <div class="datas-periodo">25 de julho a 10 de outubro</div>
+                                    <div class="datas-detalhe-tooltip" title="Aulas aos sábados: 25 de julho, 1, 8, 15, 22, 29 de agosto, 12, 19, 26 de setembro, 3 e 10 de outubro.">
+                                        <i class="dashicons dashicons-editor-help"></i> Ver calendário completo
+                                    </div>
+                                </td>
+                                <td class="cell-horario">
+                                    <strong>09h às 16h <small>(1h almoço)</small></strong>
+                                </td>
+                                <td class="cell-dias">
+                                    Sábados
+                                </td>
+                                <td class="cell-local">
+                                    <span class="icon-map"><i class="dashicons dashicons-location"></i></span>
+                                    <span>Flamengo, Rio de Janeiro</span>
+                                </td>
+                                <td class="cell-valores">
+                                    <div class="preco-riscado">De R$ 2.690,00 por</div>
+                                    <div class="preco-principal">10x de R$ 214,90</div>
+                                    <div class="preco-avista">ou R$ 1.899,00 à vista</div>
+                                </td>
+                                <td class="cell-botao">
+                                    <a href="#" class="btn-checkout">
+                                        Comprar agora
+                                        <span class="badge-desconto">20% OFF</span>
+                                    </a>
+                                </td>
+                            </tr>
+                            
+                            <!-- Row 3: Turma Esgotada -->
+                            <tr class="turma-esgotada">
+                                <td class="cell-datas">
+                                    <span class="badge-status status-esgotada">Esgotada</span>
+                                    <div class="datas-periodo">15 de junho a 20 de agosto</div>
+                                </td>
+                                <td class="cell-horario">
+                                    <strong>19h às 22h</strong>
+                                </td>
+                                <td class="cell-dias">
+                                    Terças e Quintas
+                                </td>
+                                <td class="cell-local">
+                                    <span class="icon-map"><i class="dashicons dashicons-location"></i></span>
+                                    <span>Flamengo, Rio de Janeiro</span>
+                                </td>
+                                <td class="cell-valores">
+                                    <div class="preco-riscado">De R$ 2.690,00 por</div>
+                                    <div class="preco-principal">10x de R$ 214,90</div>
+                                </td>
+                                <td class="cell-botao">
+                                    <button class="btn-checkout disabled" disabled>Esgotado</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- MOBILE CARDS VIEW -->
+                <div class="foco-cards-mobile-container">
+                    <!-- Card 1 -->
+                    <div class="foco-turma-card">
+                        <div class="card-header">
+                            <span class="badge-status status-aberta">Inscrições Abertas</span>
+                            <span class="badge-desconto-card">20% OFF</span>
+                        </div>
+                        <div class="card-datas">
+                            <div class="card-title">INSCRIÇÕES ABERTAS</div>
+                            <div class="card-periodo">06 de julho a 16 de setembro</div>
+                        </div>
+                        <div class="card-details-list">
+                            <div class="card-detail-item">
+                                <span class="detail-icon"><i class="dashicons dashicons-location"></i></span>
+                                <span class="detail-text">Aulas presenciais no Flamengo, Rio de Janeiro</span>
+                            </div>
+                            <div class="card-detail-item">
+                                <span class="detail-icon"><i class="dashicons dashicons-calendar-alt"></i></span>
+                                <span class="detail-text">Segundas e Quartas – Das 19h às 22h</span>
+                            </div>
+                            <div class="card-detail-item data-detalhada">
+                                <span class="detail-icon"><i class="dashicons dashicons-clock"></i></span>
+                                <span class="detail-text"><strong>Datas das aulas:</strong> 6, 8, 13, 15, 20, 22, 27, 29 de julho, 3, 5, 10, 12, 17, 19, 24, 26, 31 de agosto, 2, 9, 14 e 16 de setembro</span>
+                            </div>
+                        </div>
+                        <div class="card-pricing">
+                            <div class="card-price-de">TOTAL: de R$ <span class="risco">2.690,00</span></div>
+                            <div class="card-price-por">POR APENAS 10x de R$ 214,90</div>
+                            <div class="card-price-avista">ou R$ 1.899,00 à vista</div>
+                        </div>
+                        <div class="card-action">
+                            <a href="#" class="btn-checkout-card">Inscreva-se Agora</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="foco-turma-card">
+                        <div class="card-header">
+                            <span class="badge-status status-ultimas">Últimas Vagas</span>
+                            <span class="badge-desconto-card">20% OFF</span>
+                        </div>
+                        <div class="card-datas">
+                            <div class="card-title">INSCRIÇÕES ABERTAS</div>
+                            <div class="card-periodo">25 de julho a 10 de outubro</div>
+                        </div>
+                        <div class="card-details-list">
+                            <div class="card-detail-item">
+                                <span class="detail-icon"><i class="dashicons dashicons-location"></i></span>
+                                <span class="detail-text">Aulas presenciais no Flamengo, Rio de Janeiro</span>
+                            </div>
+                            <div class="card-detail-item">
+                                <span class="detail-icon"><i class="dashicons dashicons-calendar-alt"></i></span>
+                                <span class="detail-text">Sábados – Das 09h às 16h</span>
+                            </div>
+                            <div class="card-detail-item data-detalhada">
+                                <span class="detail-icon"><i class="dashicons dashicons-clock"></i></span>
+                                <span class="detail-text"><strong>Datas das aulas:</strong> 25 de julho, 1, 8, 15, 22, 29 de agosto, 12, 19, 26 de setembro, 3 e 10 de outubro</span>
+                            </div>
+                        </div>
+                        <div class="card-pricing">
+                            <div class="card-price-de">TOTAL: de R$ <span class="risco">2.690,00</span></div>
+                            <div class="card-price-por">POR APENAS 10x de R$ 214,90</div>
+                            <div class="card-price-avista">ou R$ 1.899,00 à vista</div>
+                        </div>
+                        <div class="card-action">
+                            <a href="#" class="btn-checkout-card">Inscreva-se Agora</a>
+                        </div>
+                    </div>
+
+                    <!-- Card Esgotado -->
+                    <div class="foco-turma-card turma-esgotada">
+                        <div class="card-header">
+                            <span class="badge-status status-esgotada">Esgotada</span>
+                        </div>
+                        <div class="card-datas">
+                            <div class="card-title">INSCRIÇÕES ENCERRADAS</div>
+                            <div class="card-periodo">15 de junho a 20 de agosto</div>
+                        </div>
+                        <div class="card-details-list">
+                            <div class="card-detail-item">
+                                <span class="detail-icon"><i class="dashicons dashicons-location"></i></span>
+                                <span class="detail-text">Aulas presenciais no Flamengo, Rio de Janeiro</span>
+                            </div>
+                            <div class="card-detail-item">
+                                <span class="detail-icon"><i class="dashicons dashicons-calendar-alt"></i></span>
+                                <span class="detail-text">Terças e Quintas – Das 19h às 22h</span>
+                            </div>
+                        </div>
+                        <div class="card-pricing">
+                            <div class="card-price-por">TURMA ENCERRADA</div>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn-checkout-card disabled" disabled>Esgotada</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- Doubt / FAQ CTA -->
+    <div class="container">
+        <section style="padding-top: 0px;">
+            <div class="support-cta">
+                <div class="support-text">
+                    <h3>Ainda está em dúvida se esse é o curso certo pra você?</h3>
+                    <p>Fale agora mesmo com um consultor acadêmico por WhatsApp e tire suas dúvidas sobre cronograma, pagamentos ou descontos corporativos.</p>
+                </div>
+                <a href="#" class="support-btn">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i>
+                    Chamar no WhatsApp
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Foco Digital Cursos. Todos os direitos reservados.</p>
+            <p>Foco Digital Treinamentos e Serviços de Marketing Ltda.</p>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+
+        // Apply theme on load
+        if (currentTheme === 'light') {
+            document.body.classList.add('light-mode');
+            toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        } else {
+            toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        }
+
+        // Toggle action
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            let theme = 'dark';
+            if (document.body.classList.contains('light-mode')) {
+                theme = 'light';
+                toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+            localStorage.setItem('theme', theme);
+        });
+    </script>
+
+</body>
+</html>

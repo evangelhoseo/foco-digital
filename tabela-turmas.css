@@ -1,0 +1,467 @@
+/* ==========================================================================
+   Tabela de Turmas - Foco Digital Cursos
+   Estilo Premium de Alto Impacto (Dark Mode com Detalhes Laranja)
+   ========================================================================== */
+
+/* Font & Global Variables */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap');
+
+:root {
+    --foco-bg-table: #181c24;
+    --foco-bg-row-hover: #1e2430;
+    --foco-text-primary: #ffffff;
+    --foco-text-muted: #9ba4b4;
+    --foco-accent: #ff5900;
+    --foco-accent-hover: #ff7830;
+    --foco-accent-grad: linear-gradient(135deg, #b23e00 0%, #ff8b4c 50%, #ff5900 100%);
+    --foco-border: rgba(255, 255, 255, 0.08);
+    --foco-font: 'Sora', sans-serif;
+    
+    /* Status Colors */
+    --status-aberta-bg: rgba(0, 208, 130, 0.12);
+    --status-aberta-text: #00d084;
+    --status-ultimas-bg: rgba(252, 185, 0, 0.12);
+    --status-ultimas-text: #fcb900;
+    --status-esgotada-bg: rgba(207, 46, 46, 0.12);
+    --status-esgotada-text: #cf2e2e;
+}
+
+/* Wrapper Layout */
+.foco-agenda-wrapper {
+    font-family: var(--foco-font);
+    color: var(--foco-text-primary);
+    width: 100%;
+    margin: 30px 0;
+    box-sizing: border-box;
+}
+
+.foco-agenda-wrapper *,
+.foco-agenda-wrapper *::before,
+.foco-agenda-wrapper *::after {
+    box-sizing: border-box;
+}
+
+/* Status Badges */
+.badge-status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+
+.badge-status.status-aberta {
+    background-color: var(--status-aberta-bg);
+    color: var(--status-aberta-text);
+    border: 1px solid rgba(0, 208, 130, 0.2);
+}
+
+.badge-status.status-ultimas {
+    background-color: var(--status-ultimas-bg);
+    color: var(--status-ultimas-text);
+    border: 1px solid rgba(252, 185, 0, 0.2);
+}
+
+.badge-status.status-esgotada {
+    background-color: var(--status-esgotada-bg);
+    color: var(--status-esgotada-text);
+    border: 1px solid rgba(207, 46, 46, 0.2);
+}
+
+/* ==========================================================================
+   DESKTOP VIEW STYLING (Table)
+   ========================================================================== */
+.foco-table-desktop-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 12px;
+    background-color: var(--foco-bg-table);
+    border: 1px solid var(--foco-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.foco-table-turmas {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 900px;
+}
+
+/* Headers */
+.foco-table-turmas th {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--foco-text-muted);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--foco-border);
+}
+
+/* Rows & Cells */
+.foco-table-turmas td {
+    padding: 24px;
+    border-bottom: 1px solid var(--foco-border);
+    vertical-align: middle;
+    transition: background-color 0.2s ease;
+}
+
+.foco-table-turmas tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.foco-table-turmas tbody tr:hover td {
+    background-color: var(--foco-bg-row-hover);
+}
+
+/* Specific Cells */
+.cell-datas {
+    min-width: 250px;
+}
+
+.datas-periodo {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--foco-text-primary);
+    margin-top: 4px;
+}
+
+.datas-detalhe-tooltip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    color: var(--foco-text-muted);
+    margin-top: 6px;
+    cursor: help;
+    transition: color 0.2s ease;
+}
+
+.datas-detalhe-tooltip:hover {
+    color: var(--foco-accent);
+}
+
+.cell-horario {
+    font-size: 1rem;
+    color: var(--foco-text-primary);
+}
+
+.cell-dias {
+    font-size: 0.95rem;
+    color: var(--foco-text-primary);
+}
+
+.cell-local {
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px; /* centralização óptica */
+}
+
+.cell-local .icon-map {
+    color: var(--foco-accent);
+    font-size: 1.2rem;
+}
+
+.cell-valores {
+    min-width: 200px;
+}
+
+.preco-riscado {
+    font-size: 0.75rem;
+    color: var(--foco-text-muted);
+    text-decoration: line-through;
+    margin-bottom: 4px;
+}
+
+.preco-principal {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--foco-text-primary);
+}
+
+.preco-principal span.cents {
+    font-size: 0.9rem;
+}
+
+.preco-avista {
+    font-size: 0.8rem;
+    color: var(--foco-text-muted);
+    margin-top: 4px;
+}
+
+/* Checkout Button */
+.btn-checkout {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--foco-accent-grad);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 14px 28px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 89, 0, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+    overflow: visible;
+}
+
+.btn-checkout:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 89, 0, 0.4);
+    color: #ffffff;
+}
+
+.btn-checkout:active {
+    transform: translateY(0);
+}
+
+.btn-checkout.disabled,
+.btn-checkout:disabled {
+    background: #2e3542 !important;
+    color: #5d6778 !important;
+    cursor: not-allowed;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* Discount Badge on Button */
+.btn-checkout .badge-desconto {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #ff3b30;
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 3px 6px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* Table Esgotada Class */
+.turma-esgotada td {
+    opacity: 0.6;
+}
+.turma-esgotada:hover td {
+    background-color: transparent !important;
+}
+
+/* Hide Mobile Elements on Desktop */
+.foco-cards-mobile-container {
+    display: none;
+}
+
+.foco-no-classes {
+    background-color: var(--foco-bg-table);
+    border: 1px dashed var(--foco-border);
+    padding: 30px;
+    text-align: center;
+    border-radius: 12px;
+    color: var(--foco-text-muted);
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   MOBILE VIEW STYLING (Cards)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    /* Hide Desktop Table */
+    .foco-table-desktop-container {
+        display: none;
+    }
+    
+    /* Show Mobile Container */
+    .foco-cards-mobile-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+    
+    /* Mobile Card Box */
+    .foco-turma-card {
+        background-color: var(--foco-bg-table);
+        border: 1px solid var(--foco-border);
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .foco-turma-card:hover {
+        border-color: rgba(255, 89, 0, 0.3);
+    }
+    
+    .foco-turma-card.turma-esgotada {
+        opacity: 0.65;
+    }
+
+    /* Card Header */
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+    }
+
+    .card-header .badge-status {
+        margin-bottom: 0;
+    }
+
+    .badge-desconto-card {
+        background-color: var(--foco-accent);
+        color: #ffffff;
+        font-size: 0.7rem;
+        font-weight: 800;
+        padding: 4px 10px;
+        border-radius: 4px;
+        letter-spacing: 0.02em;
+    }
+
+    /* Card Dates */
+    .card-datas {
+        margin-bottom: 20px;
+    }
+
+    .card-datas .card-title {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--foco-accent);
+        letter-spacing: 0.05em;
+        margin-bottom: 4px;
+    }
+
+    .card-datas .card-periodo {
+        font-size: 1.3rem;
+        font-weight: 800;
+        line-height: 1.25;
+        color: var(--foco-text-primary);
+    }
+
+    /* Card Details List */
+    .card-details-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 24px;
+        border-top: 1px solid var(--foco-border);
+        border-bottom: 1px solid var(--foco-border);
+        padding: 16px 0;
+    }
+
+    .card-detail-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.85rem;
+        color: var(--foco-text-primary);
+        line-height: 1.4;
+    }
+
+    .card-detail-item .detail-icon {
+        color: var(--foco-accent);
+        font-size: 1.1rem;
+        flex-shrink: 0;
+        margin-top: 1px;
+    }
+
+    .card-detail-item.data-detalhada {
+        font-size: 0.8rem;
+        color: var(--foco-text-muted);
+    }
+
+    /* Card Pricing Block */
+    .card-pricing {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .card-price-de {
+        font-size: 0.75rem;
+        color: var(--foco-text-muted);
+        margin-bottom: 4px;
+    }
+
+    .card-price-de span.risco {
+        text-decoration: line-through;
+    }
+
+    .card-price-por {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--foco-text-primary);
+        letter-spacing: -0.02em;
+    }
+
+    .card-price-avista {
+        font-size: 0.85rem;
+        color: var(--foco-text-muted);
+        margin-top: 4px;
+    }
+
+    /* Mobile Action Button */
+    .btn-checkout-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--foco-accent-grad);
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 16px;
+        border-radius: 30px;
+        border: none;
+        width: 100%;
+        box-shadow: 0 4px 15px rgba(255, 89, 0, 0.2);
+        transition: background 0.3s ease;
+    }
+
+    .btn-checkout-card:hover {
+        background: var(--foco-accent-hover);
+        color: #ffffff;
+    }
+
+    .btn-checkout-card.disabled,
+    .btn-checkout-card:disabled {
+        background: #2e3542 !important;
+        color: #5d6778 !important;
+        cursor: not-allowed;
+        box-shadow: none !important;
+    }
+}
+
+/* ==========================================================================
+   LIGHT MODE OVERRIDES
+   ========================================================================== */
+body.light-mode {
+    --foco-bg-table: #ffffff;
+    --foco-bg-row-hover: #f1f5f9;
+    --foco-text-primary: #0f172a;
+    --foco-text-muted: #64748b;
+    --foco-border: rgba(0, 0, 0, 0.08);
+}

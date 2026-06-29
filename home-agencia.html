@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agência Foco Digital | Gateway de Serviços e Treinamentos</title>
+    
+    <!-- Link to Stylesheet -->
+    <link rel="stylesheet" href="home.css">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    Foco<span>Digital</span>
+                    <span class="agency-text">Grupo</span>
+                </a>
+                <div class="header-actions">
+                    <button id="theme-toggle" aria-label="Alternar tema">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <a href="https://api.whatsapp.com/send?phone=5521971857144" class="contact-btn" target="_blank">Falar com Consultor</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Intro Headline Section -->
+    <div class="container">
+        <section class="intro-section">
+            <div class="intro-tag">Grupo Foco Digital</div>
+            <h1>Uma única marca. <span>Modelos estratégicos</span> para acelerar seu crescimento.</h1>
+            <p class="intro-subtitle">Escolha entre a nossa Agência de Marketing (Modelo SEO ou Modelo Studio), ou capacite sua equipe com nossos cursos práticos.</p>
+        </section>
+    </div>
+
+    <!-- The Gateway Split Cards -->
+    <div class="container">
+        <div class="gateway-grid">
+            
+            <!-- Card 1: Agency Services (SEO Model) -->
+            <div class="gateway-card agency-side" onclick="window.location.href='agencia.html'">
+                <div class="card-top">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div class="card-title">Agência (Modelo SEO)</div>
+                    <div class="card-desc">Marketing de performance focado em dados. Terceirize tráfego pago, SEO e landing pages com foco em aceleração rápida.</div>
+                    
+                    <ul class="card-bullets">
+                        <li><i class="fa-solid fa-circle-check"></i> Gestão de Mídia Paga (Meta, Google, TikTok Ads)</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Otimização de Sites (SEO de Alta Performance)</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Dashboard de Métricas e Gráficos de Conversão</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Foco Absoluto em Aumento de ROI</li>
+                    </ul>
+                </div>
+                <div class="card-bottom">
+                    <a href="agencia.html" class="gateway-btn">
+                        Conhecer Modelo SEO
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2: Agency Services (Studio Model) -->
+            <div class="gateway-card studio-side" onclick="window.location.href='agencia-digital.html'">
+                <div class="card-top">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div class="card-title">Agência (Modelo Studio)</div>
+                    <div class="card-desc">Stark Design & Technology Studio. Identidades de marca inteligentes, interfaces de alta performance e projetos corporativos.</div>
+                    
+                    <ul class="card-bullets">
+                        <li><i class="fa-solid fa-circle-check"></i> Desenvolvimento Web e Mobile Premium</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Design de UX/UI e Direção de Arte Estúdio</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Produção de Vídeos e Criativos Corporativos</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Soluções Tecnológicas e Projetos Customizados</li>
+                    </ul>
+                </div>
+                <div class="card-bottom">
+                    <a href="agencia-digital.html" class="gateway-btn">
+                        Conhecer Modelo Studio
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3: Course Division -->
+            <div class="gateway-card courses-side" onclick="window.location.href='index.html'">
+                <div class="card-top">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div class="card-title">Foco Digital Cursos</div>
+                    <div class="card-desc">Aprenda na prática. Cursos presenciais, workshops e treinamentos corporativos (In-Company) com uso aplicado de I.A.</div>
+                    
+                    <ul class="card-bullets">
+                        <li><i class="fa-solid fa-circle-check"></i> Cursos Presenciais Práticos com Suporte</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Treinamentos In-Company Sob Medida</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Marketing com I.A. (Meta Ads & Google Ads)</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Certificado de Conclusão Reconhecido</li>
+                    </ul>
+                </div>
+                <div class="card-bottom">
+                    <a href="index.html" class="gateway-btn">
+                        Ver Cursos e Treinamentos
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Grupo Foco Digital. Todos os direitos reservados.</p>
+            <p>Agência Foco Digital & Foco Digital Treinamentos e Cursos Ltda.</p>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Javascript -->
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+
+        // Apply theme on load
+        if (currentTheme === 'light') {
+            document.body.classList.add('light-mode');
+            toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        } else {
+            toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        }
+
+        // Toggle theme action
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Avoid triggering card click when clicking the theme button
+            document.body.classList.toggle('light-mode');
+            let theme = 'dark';
+            if (document.body.classList.contains('light-mode')) {
+                theme = 'light';
+                toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                theme = 'light'; // wait, fallback to dark
+                theme = 'dark';
+                toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+            localStorage.setItem('theme', theme);
+        });
+    </script>
+
+</body>
+</html>
