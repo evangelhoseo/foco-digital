@@ -311,6 +311,20 @@ body.light-mode .logo-img {
     border-color: var(--text-primary);
 }
 
+#nav-cta-btn {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.mobile-text {
+    display: none;
+}
+
+.desktop-text {
+    display: inline;
+}
+
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -1072,6 +1086,19 @@ body.light-mode footer {
     
     .section-title {
         font-size: 1.8rem;
+    }
+    
+    #nav-cta-btn {
+        padding: 6px 12px;
+        font-size: 0.72rem;
+    }
+    
+    .desktop-text {
+        display: none;
+    }
+    
+    .mobile-text {
+        display: inline;
     }
     
     /* Mobile Menu */
