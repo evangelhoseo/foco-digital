@@ -361,7 +361,7 @@ body.light-mode #nav-cta-btn:hover {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    z-index: 999;
+    z-index: 1150; /* Higher than menu-toggle to dim the header elements */
 }
 
 .menu-overlay.open {
@@ -1160,7 +1160,7 @@ body.light-mode footer {
         padding: 24px 30px;
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
         transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1000;
+        z-index: 1200; /* Higher than menu-overlay and menu-toggle to cover them completely */
         gap: 15px;
     }
     
