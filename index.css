@@ -1109,27 +1109,12 @@ body.light-mode footer {
     }
     
     #nav-cta-btn {
-        padding: 7px 12px;
-        font-size: 0.72rem;
-        background-color: #25D366; /* WhatsApp Green highlight for mobile */
-        border-color: #25D366;
-        color: #ffffff;
-    }
-    
-    #nav-cta-btn:hover, body.light-mode #nav-cta-btn:hover {
-        background-color: transparent;
-        color: #25D366;
-        border-color: #25D366;
-    }
-    
-    .desktop-text {
         display: none;
     }
     
-    .mobile-text {
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
+    .header-actions {
+        margin-left: auto;
+        margin-right: 15px;
     }
     
     /* Mobile Menu */
