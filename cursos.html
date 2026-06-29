@@ -575,6 +575,42 @@
             color: #64748b;
             border-top: 1px solid rgba(0, 0, 0, 0.05);
         }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 56px;
+            height: 56px;
+            background-color: #25D366;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.85rem;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+            z-index: 1050;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+        }
+        
+        .floating-whatsapp:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            color: #ffffff;
+        }
+        
+        @media (max-width: 768px) {
+            .floating-whatsapp {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.6rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -951,5 +987,9 @@
         });
     </script>
 
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5521994042310?text=Olá! Gostaria de falar com a equipe da Foco Digital." class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 </body>
 </html>
