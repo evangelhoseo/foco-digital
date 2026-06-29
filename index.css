@@ -312,9 +312,29 @@ body.light-mode .logo-img {
 }
 
 #nav-cta-btn {
-    padding: 10px 20px;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border: 1px solid var(--color-primary);
+    padding: 10px 22px;
     font-size: 0.85rem;
     white-space: nowrap;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-smooth);
+}
+
+#nav-cta-btn:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+body.light-mode #nav-cta-btn {
+    color: #ffffff;
+}
+
+body.light-mode #nav-cta-btn:hover {
+    color: var(--color-primary);
 }
 
 .mobile-text {
@@ -1089,8 +1109,17 @@ body.light-mode footer {
     }
     
     #nav-cta-btn {
-        padding: 6px 12px;
+        padding: 7px 12px;
         font-size: 0.72rem;
+        background-color: #25D366; /* WhatsApp Green highlight for mobile */
+        border-color: #25D366;
+        color: #ffffff;
+    }
+    
+    #nav-cta-btn:hover, body.light-mode #nav-cta-btn:hover {
+        background-color: transparent;
+        color: #25D366;
+        border-color: #25D366;
     }
     
     .desktop-text {
@@ -1098,7 +1127,9 @@ body.light-mode footer {
     }
     
     .mobile-text {
-        display: inline;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
     }
     
     /* Mobile Menu */
