@@ -10,7 +10,7 @@
     <meta name="author" content="Foco Digital">
     
     <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="index.css?v=1.9">
+    <link rel="stylesheet" href="index.css?v=1.10">
     
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -27,6 +27,10 @@
                 
                 <!-- Main Navigation -->
                 <nav class="nav-menu" id="nav-menu" aria-label="Navegação Principal">
+                    <div class="menu-mobile-header">
+                        <span class="menu-mobile-title">Menu</span>
+                        <button class="menu-mobile-close" id="menu-close-btn" aria-label="Fechar menu">✕</button>
+                    </div>
                     <a href="#inicio" class="nav-link">Início</a>
                     <a href="#agencia" class="nav-link">Soluções para Empresas</a>
                     <a href="#educacao" class="nav-link">Cursos e Treinamentos</a>
@@ -53,6 +57,8 @@
                 </button>
             </div>
         </div>
+        <!-- Background Overlay for Mobile Menu -->
+        <div class="menu-overlay" id="menu-overlay"></div>
     </header>
 
     <main>
@@ -386,20 +392,32 @@
             }
         });
 
-        // Mobile Menu toggle script
+        // Mobile Menu Toggle & Drawer
         const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
+        const menuCloseBtn = document.getElementById('menu-close-btn');
+        const menuOverlay = document.getElementById('menu-overlay');
 
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('open');
-        });
+        function openMobileMenu() {
+            navMenu.classList.add('open');
+            menuOverlay.classList.add('open');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
 
-        // Close mobile menu when a nav link is clicked
-        const navLinks = document.querySelectorAll('.nav-link');
+        function closeMobileMenu() {
+            navMenu.classList.remove('open');
+            menuOverlay.classList.remove('open');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        menuToggle.addEventListener('click', openMobileMenu);
+        if (menuCloseBtn) menuCloseBtn.addEventListener('click', closeMobileMenu);
+        if (menuOverlay) menuOverlay.addEventListener('click', closeMobileMenu);
+
+        // Close menu when clicking link
+        const navLinks = document.querySelectorAll('.nav-menu .nav-link');
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('open');
-            });
+            link.addEventListener('click', closeMobileMenu);
         });
 
         // Theme Toggle Javascript

@@ -345,6 +345,30 @@ body.light-mode #nav-cta-btn:hover {
     display: inline;
 }
 
+/* Mobile Menu Drawer Elements (hidden on desktop) */
+.menu-mobile-header {
+    display: none;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(8, 9, 12, 0.6);
+    backdrop-filter: blur(4px); /* Premium backdrop blur */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.menu-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -1131,29 +1155,66 @@ body.light-mode footer {
         height: 100vh;
         background-color: var(--bg-secondary);
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: flex-start;
-        padding: 80px 40px;
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
-        transition: right 0.4s ease;
+        padding: 24px 30px;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1000;
-        gap: 30px;
+        gap: 15px;
     }
     
     .nav-menu.open {
         right: 0;
     }
     
-    .nav-menu.open ~ .menu-toggle span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
+    .menu-mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 15px;
+        margin-bottom: 15px;
     }
     
-    .nav-menu.open ~ .menu-toggle span:nth-child(2) {
-        opacity: 0;
+    .menu-mobile-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        font-family: 'Sora', sans-serif;
     }
     
-    .nav-menu.open ~ .menu-toggle span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
+    .menu-mobile-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: var(--transition-smooth);
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .menu-mobile-close:hover {
+        color: var(--color-primary);
+    }
+    
+    .nav-menu .nav-link {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        padding: 8px 0;
+        width: 100%;
+        display: block;
+        transition: var(--transition-smooth);
+    }
+    
+    .nav-menu .nav-link:hover {
+        color: var(--color-primary);
+        padding-left: 8px; /* Premium hover slide effect */
     }
     
     .btn {
