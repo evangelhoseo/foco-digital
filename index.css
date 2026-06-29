@@ -1228,7 +1228,7 @@ body.light-mode footer {
     
     .hero h1 {
         font-size: 2.1rem;
-        min-height: 3.3em;
+        min-height: 4.8em; /* Reserves space for 4 lines of text, preventing vertical jitter on mobile */
         margin-bottom: 12px;
         line-height: 1.25;
     }
